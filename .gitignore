@@ -1,2 +1,3 @@
 vendor
 registry_tests.go
+go-type-registry
