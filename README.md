@@ -7,8 +7,7 @@ Example:
 
 ```
 func generateRegistry(r *runtime.Registry) error {
-	g := new(modules.Gitlab)
-	r.Put(reflect.TypeOf(g))
+	r.Put(reflect.TypeOf(&modules.Gitlab{}))
 	return nil
 }
 
