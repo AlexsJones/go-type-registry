@@ -28,8 +28,6 @@ func main() {
 		fmt.Printf("error: %s\n", err.Error())
 		return
 	}
-
-	unwrapped := value.Unwrap().(*foo)
-
-	fmt.Println(unwrapped.Hello())
+	//Hitting language limitations here
+	fmt.Println(value.Unwrap().(*foo).Hello())
 }

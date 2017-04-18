@@ -8,13 +8,13 @@ import (
 
 //Entry is a utility structure for holding type information for reflection
 type Entry struct {
-	name    string
-	refType reflect.Type
+	Name    string
+	RefType reflect.Type
 }
 
 //Unwrap brings the entry back into a real object
 func (e *Entry) Unwrap() interface{} {
-	return reflect.New(e.refType).Elem().Interface()
+	return reflect.New(e.RefType).Elem().Interface()
 }
 
 //Registry is a utility structure for holding type information for reflection
@@ -25,10 +25,9 @@ type Registry struct {
 //Put will register a type against a string
 func (r *Registry) Put(i interface{}) {
 	t := reflect.TypeOf(i)
-	e := &Entry{}
-	e.name = t.String()
-	e.refType = t
+	e := &Entry{RefType: t, Name: t.String()}
 	log.Println("Registering as " + t.String())
+	log.Println(reflect.TypeOf(i))
 	r.storedEntries[t.String()] = e
 }
 
