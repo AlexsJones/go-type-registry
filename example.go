@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 
 	reg "github.com/AlexsJones/go-type-registry/core"
 )
@@ -29,5 +30,12 @@ func main() {
 		return
 	}
 	//Hitting language limitations here
-	fmt.Println(value.Unwrap().(*foo).Hello())
+	i := value.Unwrap()
+	fmt.Println(reflect.TypeOf(i))
+	switch i.(type) {
+	//The type is a pointer to the foo object
+	case *foo:
+		fmt.Println(i.(*foo).Hello())
+	}
+
 }
