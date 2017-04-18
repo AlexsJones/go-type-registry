@@ -17,7 +17,7 @@ func (r *Registry) Put(t reflect.Type) {
 }
 
 //Get will return a new instance of type if avialable
-func (r *Registry) Get(name string) interface {
+func (r *Registry) Get(name string) interface{} {
 	n := reflect.New(r.storedTypes[name].Elem())
 	return n.Interface()
 }
