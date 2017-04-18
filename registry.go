@@ -23,12 +23,6 @@ func (r *Registry) Get(name string) interface{} {
 }
 
 //NewRegistry takes optional functions that can manipulate the object initialised
-/*
-  func generateRegistry(r *runtime.Registry) error {
-	return nil
-}
-registry := NewRegistry(generateRegistry)
-*/
 func NewRegistry(options ...func(*Registry) error) (*Registry, error) {
 	r := &Registry{storedTypes: make(map[string]reflect.Type)}
 	for _, op := range options {
