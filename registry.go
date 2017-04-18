@@ -12,7 +12,7 @@ type Registry struct {
 
 //Put will register a type against a string
 func (r *Registry) Put(t reflect.Type) {
-	log.Println("Registring as " + t.String())
+	log.Println("Registering as " + t.String())
 	r.storedTypes[t.String()] = t
 }
 
